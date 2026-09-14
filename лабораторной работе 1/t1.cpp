@@ -8,15 +8,22 @@ using namespace std;
 
 int main()
 {
-    float hours = 0;
-    float minutes = 0;
+    double hours = 0;
 
     cout << "Enter hours: ";
-
     cin >> hours;
 
-    minutes = hours * 60;
+    while (cin.fail() || hours < 0)
+    {
+        cin.clear();
+
+        cout << "Invalid input. Enter hours again: ";
+        cin >> hours;
+    }
+
+    double minutes = hours * 60;
 
     cout << hours << " H = " << minutes << " M" << endl;
+
     return 0;
 }
