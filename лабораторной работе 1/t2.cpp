@@ -5,17 +5,36 @@ using namespace std;
 
 int main()
 {
-    int width = 0, height = 0;
-    int perimeter = 0, area = 0;
+    double width = 0, height = 0;
 
-    cout << "Enter width and height: ";
+    // Ввод и проверка ширины
+    cout << "Enter width: ";
+    cin >> width;
+    while (cin.fail() || width <= 0)
+    {
+        cin.clear(); // Сброс флага ошибки cin
+        cin.ignore(10000, '\n'); // Очистка некорректных символов из буфера
+        cout << "Invalid input! Width must be a positive number. Enter width again: ";
+        cin >> width;
+    }
 
-    cin >> width >> height;
+    // Ввод и проверка высоты
+    cout << "Enter height: ";
+    cin >> height;
+    while (cin.fail() || height <= 0)
+    {
+        cin.clear(); // Сброс флага ошибки cin
+        cin.ignore(10000, '\n'); // Очистка некорректных символов из буфера
+        cout << "Invalid input! Height must be a positive number. Enter height again: ";
+        cin >> height;
+    }
 
-    perimeter = 2 * (width + height);
-    area = width * height;
+    // Расчет периметра и площади с явным вещественным множителем 2.0
+    double perimeter = 2.0 * (width + height);
+    double area = width * height;
 
-    cout << " P = " << perimeter << " S = " << area << endl;
+    // Наглядный вывод результатов с текстовыми пояснениями
+    cout << "P = " << perimeter << endl << "S = " << area << endl;
 
     return 0;
 }
