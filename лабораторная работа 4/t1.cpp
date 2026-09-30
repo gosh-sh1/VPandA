@@ -27,7 +27,8 @@ int main()
     }
     
     // Оператор switch для выбора времени суток
-    switch (timeCode) {
+    switch (timeCode)
+    {
         case 1:
             cout << "Результат: Утро" << endl;
             break;
